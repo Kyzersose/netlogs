@@ -1,6 +1,6 @@
 services:
   rsyslog:
-    build: .
+    image: kyzersose/syslog:latest
     container_name: syslog-server
     restart: always
     ports:
@@ -9,4 +9,5 @@ services:
     volumes:
       - ./logs:/var/log
     environment:
-      - TZ=America/New_York
+      - TZ=America/Chicago
+
