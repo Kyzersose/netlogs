@@ -1,0 +1,13 @@
+services:
+  rsyslog:
+    image: rsyslog/rsyslog
+    container_name: syslog-server
+    restart: always
+    ports:
+      - "514:514/udp"  # Syslog UDP port
+      - "514:514/tcp"  # Syslog TCP port
+    volumes:
+      - ./config:/etc/rsyslog.d  # Custom config directory
+      - ./logs:/var/log/syslog  # Persist logs
+    environment:
+      - TZ=America/Chicago  # Set your timezone
