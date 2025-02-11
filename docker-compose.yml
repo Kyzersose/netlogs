@@ -20,6 +20,7 @@ services:
     command: -config.file=/etc/loki/local-config.yaml
     volumes:
       - ./loki:/etc/loki
+      - ./loki-data:/loki
 
   grafana:
     image: grafana/grafana:latest
