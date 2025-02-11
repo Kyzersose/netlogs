@@ -4,7 +4,6 @@
 This project sets up a containerized logging stack on a Raspberry Pi to collect, store, and visualize network logs from a Ubiquiti Dream Router (UDR). It uses:
 - **rsyslog** to receive logs from the UDR
 - **Loki** to store and index logs
-- **Promtail** to collect logs and send them to Loki
 - **Grafana** to query and visualize logs
 
 ## Repository
@@ -36,7 +35,6 @@ cd netlogs
 
 ### Update Docker Configuration
 1. Modify `docker-compose.yml` if needed.
-2. Update `promtail-config.yml` to match log paths.
 
 ### Start the Containers
 ```sh
@@ -48,12 +46,6 @@ To check if logs are being received:
 ```sh
 docker logs syslog-server -f
 ```
-
-To check if logs are being ingested by Loki:
-```sh
-docker logs promtail -f
-```
-
 ### Access Grafana
 1. Open a browser and go to `http://<raspberry_pi_ip>:3000`
 2. Default credentials:
@@ -72,7 +64,6 @@ docker logs promtail -f
 ├── Dockerfile           # Custom rsyslog image (optional)
 ├── config/
 │   ├── rsyslog.conf     # Rsyslog configuration
-│   ├── promtail-config.yml  # Promtail configuration
 ├── logs/                # Mounted log directory
 └── README.md            # This documentation
 ```

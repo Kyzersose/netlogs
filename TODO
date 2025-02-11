@@ -1,1 +1,2 @@
 Logrotate on the PWD/log folder.
+Do I need to see into the grafana folder? Shouldn't it just be a volume?
