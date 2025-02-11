@@ -1,7 +1,7 @@
 FROM alpine:3.21.2
 
 # Install rsyslog
-RUN apk add --no-cache rsyslog
+RUN apk add --no-cache rsyslog && apk update
 
 # Copy custom rsyslog config
 COPY config/rsyslog.conf /etc/rsyslog.conf
